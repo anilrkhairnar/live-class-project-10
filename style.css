@@ -5,12 +5,16 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  width: 100%;
-  height: 100vh;
   color: #fff;
 }
-#background-image img {
+#background-image {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+#background-image img {
   top: 0;
   left: 0;
   width: 100%;
@@ -23,15 +27,17 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+nav .menu-icon {
+  display: none;
+}
 nav .logo {
-  font-size: 40px;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: 40px;
   text-transform: uppercase;
   cursor: pointer;
 }
 nav .list {
-  padding: 0 0 50px;
+  padding: 0 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +46,7 @@ nav .list {
 }
 nav .list .list-item {
   margin: 0 55px 0 0;
-  font-size: 22px;
+  font-size: 1rem;
   font-weight: 500;
   color: #fff;
   cursor: pointer;
@@ -53,7 +59,7 @@ nav div.contact-us img {
   width: 30px;
 }
 nav div.contact-us div h4 {
-  font-size: 22px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -67,13 +73,13 @@ nav div.contact-us div h4 {
   position: relative;
 }
 .container h1 {
-  margin: 150px 0 80px;
-  font-size: 70px;
-  width: 50rem;
+  margin: 150px 0 60px;
+  font-size: 3rem;
+  max-width: 20ch;
 }
 .container button {
-  padding: 20px 60px;
-  font-size: 35px;
+  padding: 20px 50px;
+  font-size: 1.4rem;
   font-weight: 500;
   background: none;
   color: #fff;
@@ -82,12 +88,12 @@ nav div.contact-us div h4 {
   transition: 0.2s ease-in-out;
 }
 .container button:hover {
-  margin-left: -3px;
-  padding: 20px 63px;
+  transform: scale(1.1);
   background: #fff;
   color: #000;
 }
-.container div {
+.container div.puzzle-card,
+.container div.bulb-card {
   position: absolute;
   padding: 30px;
   background: rgba(255, 255, 255, 0.2);
@@ -142,4 +148,138 @@ nav div.contact-us div h4 {
   width: 17rem;
   font-size: 18px;
   font-weight: 500;
+}
+
+/* Responsive CSS */
+@media only screen and (max-width: 1255px) {
+  nav .logo {
+    font-size: 1.8rem;
+  }
+  nav .list {
+    padding-bottom: 25px;
+  }
+  nav .list .list-item {
+    margin-right: 35px;
+  }
+  nav div.contact-us img {
+    width: 1rem;
+  }
+  nav div.contact-us div h4 {
+    font-size: 1rem;
+  }
+  .container h1 {
+    font-size: 2.5rem;
+    max-width: 16ch;
+  }
+  .container button {
+    padding: 16px 40px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  nav .logo {
+    font-size: 1.3rem;
+  }
+  nav .list {
+    padding-bottom: 25px;
+  }
+  nav .list .list-item {
+    margin-right: 35px;
+    font-size: 1rem;
+  }
+  .container button {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+  }
+  .container div.bulb-card {
+    right: 200px;
+  }
+  .container div img {
+    width: 5rem;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  nav .logo-box {
+    display: flex;
+  }
+  nav .logo {
+    line-height: 1.3rem;
+  }
+  nav .menu-icon {
+    margin-right: 1rem;
+    display: block;
+    width: 1.8rem;
+  }
+  nav .list {
+    padding: 0;
+    border: 0;
+  }
+  nav .list .list-item {
+    display: none;
+  }
+  .container h1 {
+    font-size: 2rem;
+  }
+  .container button {
+    padding: 10px 28px;
+    font-size: 1rem;
+  }
+  .container div img {
+    width: 4.3rem;
+  }
+  .container div.puzzle-card {
+    top: -30px;
+  }
+  .container div.bulb-card {
+    bottom: -90px;
+    right: 195px;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  #background-image {
+    height: 100%;
+    overflow: hidden;
+  }
+  #background-image img {
+    width: auto;
+    height: 100%;
+  }
+  nav {
+    margin: 40px 5%;
+  }
+  .container {
+    margin: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container h1 {
+    margin: 0 0 2rem;
+    max-width: 25ch;
+  }
+  .container div.puzzle-card,
+  .container div.bulb-card {
+    margin: 1rem 0;
+    position: relative;
+    top: inherit;
+    right: inherit;
+    bottom: inherit;
+    width: fit-content;
+  }
+  .container div.puzzle-card::before,
+  .container div.puzzle-card::after,
+  .container div.bulb-card::before,
+  .container div.bulb-card::after {
+    content: none;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }
